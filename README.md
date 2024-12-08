@@ -42,5 +42,66 @@ Snapshots:
 - Schedule: default (once per day)
 - Allow Taking Empty Snapshots: disable
 
+## Nginx Proxy Manager
+Datasets Structure:
+- nginx_proxy_manager (Generic + Compression Level: OFF)
+  - certs_storage (App)
+  - data_storage (App)
+
+OVH configuration:
+- Buy domain on [OVH](https://www.ovh.com/)
+- .. 
+
+Nginx configuration:
+- Change login:
+  - Email: admin@example.com
+  - Password: changeme
+- SSL Certificates add for each domain:
+  - Domain Names: `<domain from ovh>`
+  - Email Address for Let's Encrypt: your email
+  - Use a DNS Challenge: `True`
+  - DNS Provider: OVH
+  - Credentials File Content: TODO
+- Proxy Hosts add for each domain:
+  - Details:
+    - Domain Names: `<domain from ovh>`
+    - Scheme: https
+    - Forward Hostname / IP: `<application IP>`
+    - Forward Port: `<application port>`
+    - Cache Assets: `True`
+    - Block Common Exploits: `True`
+    - Websockets Support: `True`
+    - Access List: (default) Publicaly Accessible
+  - SSL:
+    - SSL Certificate:  `<created certificate>`
+    - Force SSL: `True`
+
+## Jellyfin
+Datasets Structure:
+  - jellyfin (Generic)
+    - cache_storage (App)
+    - config_storage (App)
+    - transcode_storage (Generic)
+    - library_storage (Generic)
+
+App instalation:
+- Published Server URL: public ip/domain
+- Additional Storage. Mount Path: /library
+- GPU Configuration
+  - Passthrough available (non-NVIDIA) GPUs: enable
+
+
+## qBittorrent
+App instalation:
+Password setup:
+  - add to qBittorrent.config line to Preferences section: WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"
+  - default username: admin, password: adminadmin
+Auth setup:
+  - Tool -> Options -> WebUI -> Authentication:
+    - chnage login and password
+    - Bypass authentication for clients in whitelisted IP subnets: `<local ip address>/24`
+
+
 ## Links:
 Postgres dataset: https://github.com/truenas/apps/issues/790
+
