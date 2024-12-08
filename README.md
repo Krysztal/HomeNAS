@@ -1,5 +1,7 @@
 # Home NAS
 ## TrueNAS
+### Instalation
+  - change `truenas_admin` login to `admin`
 ### Static IP
 At `Network`->`Interfaces`->`Edit` (on active connection):
 - DHCP: disable
