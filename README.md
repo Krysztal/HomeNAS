@@ -1,4 +1,14 @@
 # Home NAS
+## BIOS
+Fan configuratin:  
+Advanced -> Hardware Monitor -> Smart Fan Function:  
+  - Fan off temperature limit: 42
+  - Fan start temperature limit: 45
+
+Power Consumption configuration:  
+Advanced -> Power & Performence -> CPU - Power Managment Control:
+ - Boost performentce mode: Max Non-Turbo Performance
+
 ## TrueNAS
 ### Instalation
   - change `truenas_admin` login to `admin`
@@ -44,6 +54,24 @@ Snapshots:
 - Schedule: default (once per day)
 - Allow Taking Empty Snapshots: disable
 
+### Override trusted domains (Optional):
+Go to TrueNas Shell and configure nexcloud config.php  
+```
+cd /mnt/pool/nextcloud/app_data/config
+nano config.php
+```
+- add to 'trusted_domains' =>  '`<custom domain>`'
+- change 'overwriteprotocol' => 'https'
+
+### Nextcloud Office
+Install apps:
+- Collabora Online - Built-in CODE Server
+- Nextcloud Office
+
+On Administration settings:  
+- Nextcloud Office:
+  - chose: Use the Built-in CODE - Collabora Online Development Edition
+
 ## Nginx Proxy Manager
 Datasets Structure:
 - nginx_proxy_manager (Generic + Compression Level: OFF)
@@ -52,7 +80,6 @@ Datasets Structure:
 
 OVH configuration:
 - Buy domain on [OVH](https://www.ovh.com/)
-- .. 
 
 Nginx configuration:
 - Change login:
@@ -63,11 +90,11 @@ Nginx configuration:
   - Email Address for Let's Encrypt: your email
   - Use a DNS Challenge: `True`
   - DNS Provider: OVH
-  - Credentials File Content: TODO
+  - Credentials File Content: `<result of OVH token generation>`
 - Proxy Hosts add for each domain:
   - Details:
     - Domain Names: `<domain from ovh>`
-    - Scheme: https
+    - Scheme: http
     - Forward Hostname / IP: `<application IP>`
     - Forward Port: `<application port>`
     - Cache Assets: `True`
@@ -77,6 +104,27 @@ Nginx configuration:
   - SSL:
     - SSL Certificate:  `<created certificate>`
     - Force SSL: `True`
+    - HSTS Enabled: `True`
+
+### OVH Token Generation
+Url: https://www.ovh.com/auth/api/createToken
+
+Application name: nginx-proxy-manager  
+Application description: Nginx Proxy Manager
+
+Rights:  
+Add:
+  - GET /domain/zone/*
+  - POST /domain/zone/*
+  - DELETE /domain/zone/*
+
+Result:
+```
+dns_ovh_endpoint = ovh-eu
+dns_ovh_application_key = `<secret>`
+dns_ovh_application_secret = `<secret>`
+dns_ovh_consumer_key = `<secret>`
+```
 
 ## Jellyfin
 Datasets Structure:
@@ -105,5 +153,5 @@ Auth setup:
 
 
 ## Links:
-Postgres dataset: https://github.com/truenas/apps/issues/790
-
+Postgres dataset: https://github.com/truenas/apps/issues/790  
+Nextcloud office: (ru) https://youtu.be/sHU6XZ_b2hw?t=991
