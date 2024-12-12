@@ -1,6 +1,33 @@
 # Home NAS
+Instruction how to setup TrueNas + NextCloud server with second replica TrueNas server.
 
-Instruction how to setup TrueNas + NextCloud server with second replica TrueNas server
+## Table of contents
+- [BIOS](#bios)
+  - [Fan configuration](#fan-configuration)
+  - [Power Consumption configuration](#power-consumption-configuration)
+- [TrueNAS](#truenas)
+  - [Instalation](#instalation)
+  - [Static IP](#static-ip)
+  - [Internet](#internet)
+- [NextCloud](#nextcloud)
+  - [DataSets Structure](#datasets-structure)
+  - [App instalation](#app-instalation)
+  - [NextCloud configuration](#nextcloud-configuration)
+  - [Snapshots](#snapshots)
+  - [(Optional) Override trusted domains](#optional-override-trusted-domains)
+  - [Nextcloud Office](#nextcloud-office)
+- [Nginx Proxy Manager](#nginx-proxy-manager)
+  - [DataSets Structure](#datasets-structure-1)
+  - [OVH configuration](#ovh-configuration)
+  - [OVH Token Creation](#ovh-token-creation)
+  - [Nginx configuration](#nginx-configuration)
+- [Jellyfin](#jellyfin)
+  - [DataSets Structure](#datasets-structure-2)
+  - [App instalation](#app-instalation-1)
+- [qBittorrent](#qbittorrent)
+  - [App instalation](#app-instalation-2)
+- [Resources](#resources)
+
 
 ## BIOS
 ### Fan configuration
