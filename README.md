@@ -10,19 +10,19 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - [Static IP](#static-ip)
   - [Internet](#internet)
 - [NextCloud](#nextcloud)
-  - [DataSets Structure](#datasets-structure)
+  - [DataSets structure](#datasets-structure)
   - [App instalation](#app-instalation)
   - [NextCloud configuration](#nextcloud-configuration)
   - [Snapshots](#snapshots)
   - [(Optional) Override trusted domains](#optional-override-trusted-domains)
   - [Nextcloud Office](#nextcloud-office)
 - [Nginx Proxy Manager](#nginx-proxy-manager)
-  - [DataSets Structure](#datasets-structure-1)
+  - [DataSets structure](#datasets-structure-1)
   - [OVH configuration](#ovh-configuration)
   - [OVH Token Creation](#ovh-token-creation)
   - [Nginx configuration](#nginx-configuration)
 - [Jellyfin](#jellyfin)
-  - [DataSets Structure](#datasets-structure-2)
+  - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
 - [qBittorrent](#qbittorrent)
   - [App instalation](#app-instalation-2)
@@ -57,7 +57,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 
 
 ## NextCloud
-### DataSets Structure
+### DataSets structure
 - `nextcloud` (`Generic` + `Compression Level`: `OFF`)
   - `app_data` (`App`)
   - `user_data` (`Generic`)
@@ -101,7 +101,7 @@ nano config.php
   - Chose: `Use the Built-in CODE - Collabora Online Development Edition`
 
 ## Nginx Proxy Manager
-### DataSets Structure
+### DataSets structure
 - `nginx_proxy_manager` (`Generic` + `Compression Level`: `OFF`)
   - `certs_storage` (`App`)
   - `data_storage` (`App`)
@@ -153,7 +153,7 @@ dns_ovh_consumer_key = `<secret>`
 
 
 ## Jellyfin
-### DataSets Structure
+### DataSets structure
   - `jellyfin` (`Generic`)
     - `cache_storage` (`App`)
     - `config_storage` (`App`)
