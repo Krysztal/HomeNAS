@@ -42,7 +42,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 
 ## TrueNAS
 ### Instalation
-- Change `truenas_admin` login to `admin`
+- Change login `truenas_admin` to `admin`
 
 ### Static IP
 `Network`->`Interfaces`->`Edit` (on active connection):
@@ -90,8 +90,8 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 cd /mnt/pool/nextcloud/app_data/config
 nano config.php
 ```
-- To `trusted_domains` add `<custom domain>`
-- Change `overwriteprotocol` to `https`
+- Add `<custom domain>` to `trusted_domains`
+- Change to `https` at `overwriteprotocol`
 
 ### Nextcloud Office
 - Install apps:
@@ -180,5 +180,5 @@ dns_ovh_consumer_key = `<secret>`
 
 
 ## Resources
-Postgres dataset: https://github.com/truenas/apps/issues/790  
-Nextcloud office: https://youtu.be/sHU6XZ_b2hw?t=991
+Postgres DataSet: https://github.com/truenas/apps/issues/790  
+NextCloud Office: https://youtu.be/sHU6XZ_b2hw?t=991
