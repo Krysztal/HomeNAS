@@ -27,7 +27,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - [App instalation](#app-instalation-1)
 - [qBittorrent](#qbittorrent)
   - [App instalation](#app-instalation-2)
-- [Resources](#resources)
+- [References](#references)
 
 
 ## BIOS
@@ -211,7 +211,7 @@ dns_ovh_consumer_key = `<secret>`
     - `Bypass authentication for clients in whitelisted IP subnets`: `<local ip address>/24`
 
 
-## Resources
+## References
 Postgres DataSet: https://github.com/truenas/apps/issues/790  
 NextCloud Office: https://youtu.be/sHU6XZ_b2hw?t=991  
 Data protection: https://www.youtube.com/watch?v=dP0wagQVctc
