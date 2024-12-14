@@ -153,9 +153,9 @@ Using Url: [OVH Create Token](https://www.ovh.com/auth/api/createToken):
 Create result file:
 ```
 dns_ovh_endpoint = ovh-eu
-dns_ovh_application_key = `<secret>`
-dns_ovh_application_secret = `<secret>`
-dns_ovh_consumer_key = `<secret>`
+dns_ovh_application_key = <secret>
+dns_ovh_application_secret = <secret>
+dns_ovh_consumer_key = <secret>
 ```
 
 ### Nginx configuration
