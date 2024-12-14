@@ -9,6 +9,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - [Instalation](#instalation)
   - [Static IP](#static-ip)
   - [Internet](#internet)
+  - [Data protection](#data-protection)
 - [NextCloud](#nextcloud)
   - [DataSets structure](#datasets-structure)
   - [App instalation](#app-instalation)
@@ -54,6 +55,37 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 `Network`->`Global Configuration`->`Settings`:
 - `DNS Servers`
   - `Nameserver 1`: `<local router address>`
+
+### Data protection
+- Scrub:
+  - `Pool`: `pool`
+  - `Threshold Days`: `30`
+  - `Description`: `Every 4 month`
+  - `Schedule`: `Custom (0 2 7 2,6,10 *)`
+    - `Minutes`: `0`
+    - `Hours`: `2`
+    - `Days of Month`: `7`
+    - `Days of Week`: `all`
+    - `Months`: `2,6,10`
+  - `Enabled`: `True`
+- Long SMART:
+  - `All Disks`: `True`
+  - `Type`: `LONG`
+  - `Description`: `Every 2 month`
+  - `Schedule`: `Custom (0 2 7 1,3,5,7,9,11 *)`
+    - `Hours`: `2`
+    - `Days of Month`: `7`
+    - `Days of Week`: `all`
+    - `Months`: `1,3,5,7,9,11`
+- Short SMART:
+  - `All Disks`: `True`
+  - `Type`: `SHORT`
+  - `Description`: `Twice per month`
+  - `Schedule`: `Custom (0 2 1,15 * *)`
+    - `Hours`: `2`
+    - `Days of Month`: `1,15`
+    - `Days of Week`: `all`
+    - `Months`: `all`
 
 
 ## NextCloud
