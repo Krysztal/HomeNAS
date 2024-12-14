@@ -213,4 +213,5 @@ dns_ovh_consumer_key = `<secret>`
 
 ## Resources
 Postgres DataSet: https://github.com/truenas/apps/issues/790  
-NextCloud Office: https://youtu.be/sHU6XZ_b2hw?t=991
+NextCloud Office: https://youtu.be/sHU6XZ_b2hw?t=991  
+Data protection: https://www.youtube.com/watch?v=dP0wagQVctc
