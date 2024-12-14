@@ -113,7 +113,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 - `Recursive`: `True`
 - `Snapshot Lifetime`: `2 WEEK` (default)
 - `Naming Schema`: `nextcloud-%Y-%m-%d_%H-%M`
-- `Schedule`: `once per day` (default)
+- `Schedule`: `Daily (0 0 * * *)` (default: once per day)
 - `Allow Taking Empty Snapshots`: `False`
 
 ### (Optional) Override trusted domains
