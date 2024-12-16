@@ -96,7 +96,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - `postgres_data` (`Generic` + `999:999` as owner)
 
 ### App instalation
-- `Host`: `<public ip/domain>`
+- `Host`: `<public ip/domain without https://>`
 - `Cron`: `True`
 - `GPU Configuration`
   - `Passthrough available (non-NVIDIA) GPUs`: `True`
@@ -121,11 +121,10 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 ### (Optional) Override trusted domains
 - Using TrueNas Shell change NextCloud `config.php`:
 ```
-cd /mnt/pool/nextcloud/app_data/config
-nano config.php
+nano /mnt/pool/nextcloud/app_data/config/config.php
 ```
 - Add `<custom domain>` to `trusted_domains`
-- Change to `https` at `overwriteprotocol`
+- Add `overwriteprotocol` with `https`
 
 ### Nextcloud Office
 - Install apps:
