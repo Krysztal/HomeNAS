@@ -106,6 +106,8 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 - Disable apps:
   - `Versions`
   - `Weather status`
+- Install apps:
+  - `End-to-End Encryption`
 - `Administration settings` -> `Basic settings` -> `Background jobs`:
   - Chose: `Cron (Recommended)`
 - (optional) Remove sceletron folder (cli only option)
