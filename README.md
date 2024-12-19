@@ -117,7 +117,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 - `DataSet`: `pool/nextcloud`
 - `Recursive`: `True`
 - `Snapshot Lifetime`: `2 WEEK` (default)
-- `Naming Schema`: `nextcloud-%Y-%m-%d_%H-%M`
+- `Naming Schema`: `auto-%Y-%m-%d_%H-%M` (default)
 - `Schedule`: `Daily (0 0 * * *)` (default: once per day)
 - `Allow Taking Empty Snapshots`: `False`
 
