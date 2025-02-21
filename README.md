@@ -93,7 +93,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 - `nextcloud` (`Generic` + `Compression Level`: `OFF`)
   - `app_data` (`App`)
   - `user_data` (`Generic`)
-  - `postgres_data` (`Generic` + `999:999` as owner)
+  - `postgres_data` (`Generic` + `999:999 (netdata:docker)` as owner)
 
 ### App instalation
 - `Postgres Image (CAUTION)`: `Postgres 17`
