@@ -95,7 +95,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
     - `TrueNAS URL`: `<main server url>`
     - `Admin Username`: `truenas_admin`
     - `Admin Password`: `<password>`
-    - `Username`: `truenas_admin`
+    - `Username`: `root`
     - `Private Key`: `Generate New`
   - `Source`: `pool/nextcloud`
   - `Destination`: `pool/nextcloud`
@@ -103,6 +103,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - `Include snapshots with the name`: `Naming Schema`
   - `Naming Schema`: `auto-%Y-%m-%d_%H-%M`
   - `SSH Transfer Security`: `Encryption (more secure, but slower)`
+  - `Use Sudo For ZFS Commands`: `True`
   - `Task Name`: `pool/nextcloud - pool/nextcloud`
   - `Replication Schedule`: `Custom (30 0 * * *)`
     - `Minutes`: `30`
