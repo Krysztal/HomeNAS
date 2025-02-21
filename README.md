@@ -55,6 +55,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 `Network`->`Global Configuration`->`Settings`:
 - `DNS Servers`
   - `Nameserver 1`: `<local router address>`
+  - `IPv4 Default Gateway`: `<local router address>`
 
 ### Data protection
 - Scrub:
@@ -86,6 +87,30 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
     - `Days of Month`: `1,15`
     - `Days of Week`: `all`
     - `Months`: `all`
+- Replication (only on backup server):
+  - `Source Location`: `On a Different System`
+  - `SSH Connection`: `Add New`
+    - `Name`: `<main server name>`
+    - `Setup Method`: `Semi-automatic (TrueNAS only)`
+    - `TrueNAS URL`: `<main server url>`
+    - `Admin Username`: `truenas_admin`
+    - `Admin Password`: `<password>`
+    - `Username`: `truenas_admin`
+    - `Private Key`: `Generate New`
+  - `Source`: `pool/nextcloud`
+  - `Destination`: `pool/nextcloud`
+  - `Recursive`: `True`
+  - `Include snapshots with the name`: `Naming Schema`
+  - `Naming Schema`: `auto-%Y-%m-%d_%H-%M`
+  - `SSH Transfer Security`: `Encryption (more secure, but slower)`
+  - `Task Name`: `pool/nextcloud - pool/nextcloud`
+  - `Replication Schedule`: `Custom (30 0 * * *)`
+    - `Minutes`: `30`
+    - `Hours`: `0`
+    - `Days of Month`: `*`
+    - `Days of Week`: `all`
+    - `Months`: `all`
+  - `Destination Snapshot Lifetime`: `Same as Source`
 
 
 ## NextCloud
