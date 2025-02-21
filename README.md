@@ -6,7 +6,6 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - [Fan configuration](#fan-configuration)
   - [Power Consumption configuration](#power-consumption-configuration)
 - [TrueNAS](#truenas)
-  - [Instalation](#instalation)
   - [Static IP](#static-ip)
   - [Internet](#internet)
   - [SSH (only main server)](#ssh-only-main-server)
@@ -43,9 +42,6 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 
 
 ## TrueNAS
-### Instalation
-- Change login `truenas_admin` to `admin`
-
 ### Static IP
 `Network`->`Interfaces`->`Edit` (on active connection):
 - `DHCP`: `False`
