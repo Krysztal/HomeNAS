@@ -215,6 +215,32 @@ dns_ovh_consumer_key = <secret>
     - `HSTS Enabled`: `True`
 
 
+## Dynamic DNS
+### DDNS Updater & OVH Domain
+#### DataSets structure
+  - `ddns_updater` (`App`)
+
+#### App instalation
+  - `Config`:
+    - `Provider`: `OVH`
+    - `Domain`: `<domain from OVH>`
+    - `Mode`: `Dynamic`
+    - `Username`: `<user from OVH dynamic>`
+    - `Password`: `<password from OVH dynamic>`
+    - `API Endpoint`: https://dns.eu.ovhapis.com/nic/update?system=dyndns&hostname=$HOSTNAME&myip=$IP
+
+#### OVH Domain Configuration
+  - Open domain OVHCloud Control Panel
+  - Go to DynHost Tab
+  - Open `Manage access`
+  - Create user:
+    - `The username suffix`: `<username>`
+    - `Sub-domain`: `<sub-domain-name>` or `*`
+    - `Password`: `<password>`
+  -  Go back to previous page
+  - Add a DynHost record:
+    - `Sub-domain`: `<sub-domain-name>`
+    - `Current public IP`: `<public IP>`>
 ## Jellyfin
 ### DataSets structure
   - `jellyfin` (`Generic`)
