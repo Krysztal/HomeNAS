@@ -25,7 +25,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
 - [DDNS Updater](#ddns-updater)
   - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
-  - [OVH Domain Configuration](#ovh-domain-configuration)
+  - [OVH Configuration](#ovh-configuration)
 - [Jellyfin](#jellyfin)
   - [DataSets structure](#datasets-structure-3)
   - [App instalation](#app-instalation-2)
@@ -228,24 +228,21 @@ dns_ovh_consumer_key = <secret>
 ### App instalation
   - `Config`:
     - `Provider`: `OVH`
-    - `Domain`: `<domain from OVH>`
+    - `Domain`: `<sub domain>` or `<domain from OVH>` 
     - `Mode`: `Dynamic`
-    - `Username`: `<user from OVH dynamic>`
-    - `Password`: `<password from OVH dynamic>`
+    - `Username`: `<ddns username>`
+    - `Password`: `<ddns password>`
     - `API Endpoint`: `https://dns.eu.ovhapis.com/nic/update?system=dyndns&hostname=$HOSTNAME&myip=$IP`
 
-### OVH Domain Configuration
-  - Open domain OVHCloud Control Panel
-  - Go to DynHost Tab
-  - Open `Manage access`
-  - Create user:
-    - `The username suffix`: `<username>`
-    - `Sub-domain`: `<sub-domain-name>` or `*`
-    - `Password`: `<password>`
-  -  Go back to previous page
-  - Add a DynHost record:
-    - `Sub-domain`: `Empty` for main doamin or `<sub-domain-name>`
-    - `Current public IP`: `<public IP>`
+### OVH Configuration
+  - For `<domain from OVH>` select `DynHost` tab
+    - `Manage access` -> `Create a username`:
+      - `The username suffix`: `<ddns username>`
+      - `Sub-domain`: `<sub domain>` or `*(for all domains)`
+      - `Password`: `<ddns password>`
+    - `Add a DynHost record`:
+      - `Sub-domain`: `<sub domain>` or `empty (for <domain from OVH>)`
+      - `Current public IP`: `<public ip>`
 
 
 ## Jellyfin
