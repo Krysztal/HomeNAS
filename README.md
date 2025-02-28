@@ -1,5 +1,5 @@
 # Home NAS
-Instruction how to setup TrueNas + NextCloud server with second replica TrueNas server.
+Instruction how to setup TrueNas + NextCloud main server with second backup TrueNas server.
 
 ## Table of contents
 - [BIOS](#bios)
