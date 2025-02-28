@@ -22,11 +22,15 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
   - [OVH configuration](#ovh-configuration)
   - [OVH Token Creation](#ovh-token-creation)
   - [Nginx configuration](#nginx-configuration)
-- [Jellyfin](#jellyfin)
+- [DDNS Updater](#ddns-updater)
   - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
-- [qBittorrent](#qbittorrent)
+  - [OVH Domain Configuration](#ovh-domain-configuration)
+- [Jellyfin](#jellyfin)
+  - [DataSets structure](#datasets-structure-3)
   - [App instalation](#app-instalation-2)
+- [qBittorrent](#qbittorrent)
+  - [App instalation](#app-instalation-3)
 - [References](#references)
 
 
@@ -115,6 +119,7 @@ Instruction how to setup TrueNas + NextCloud server with second replica TrueNas 
     - `Months`: `all`
   - `Destination Snapshot Lifetime`: `Same as Source`
 
+
 ## NextCloud
 ### DataSets structure
 - `nextcloud` (`Generic` + `Compression Level`: `OFF`)
@@ -162,6 +167,7 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
   - `Nextcloud Office`
 - `Administration settings` -> `Nextcloud Office`:
   - Chose: `Use the Built-in CODE - Collabora Online Development Edition`
+
 
 ## Nginx Proxy Manager
 ### DataSets structure
@@ -215,7 +221,7 @@ dns_ovh_consumer_key = <secret>
     - `HSTS Enabled`: `True`
 
 
-## DDNS Updater & OVH Domain
+## DDNS Updater
 ### DataSets structure
   - `ddns_updater` (`App`)
 
@@ -226,7 +232,7 @@ dns_ovh_consumer_key = <secret>
     - `Mode`: `Dynamic`
     - `Username`: `<user from OVH dynamic>`
     - `Password`: `<password from OVH dynamic>`
-    - `API Endpoint`: https://dns.eu.ovhapis.com/nic/update?system=dyndns&hostname=$HOSTNAME&myip=$IP
+    - `API Endpoint`: `https://dns.eu.ovhapis.com/nic/update?system=dyndns&hostname=$HOSTNAME&myip=$IP`
 
 ### OVH Domain Configuration
   - Open domain OVHCloud Control Panel
@@ -239,7 +245,8 @@ dns_ovh_consumer_key = <secret>
   -  Go back to previous page
   - Add a DynHost record:
     - `Sub-domain`: `Empty` for main doamin or `<sub-domain-name>`
-    - `Current public IP`: `<public IP>`>
+    - `Current public IP`: `<public IP>`
+
 
 ## Jellyfin
 ### DataSets structure
