@@ -25,7 +25,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 - [DDNS Updater](#ddns-updater)
   - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
-  - [OVH Configuration](#ovh-configuration)
+  - [OVH configuration](#ovh-configuration)
 - [Jellyfin](#jellyfin)
   - [DataSets structure](#datasets-structure-3)
   - [App instalation](#app-instalation-2)
@@ -234,7 +234,7 @@ dns_ovh_consumer_key = <secret>
     - `Password`: `<ddns password>`
     - `API Endpoint`: `https://dns.eu.ovhapis.com/nic/update?system=dyndns&hostname=$HOSTNAME&myip=$IP`
 
-### OVH Configuration
+### OVH configuration
   - For `<domain from OVH>` select `DynHost` tab
     - `Manage access` -> `Create a username`:
       - `The username suffix`: `<ddns username>`
