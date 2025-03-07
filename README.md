@@ -117,7 +117,8 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
     - `Days of Month`: `*`
     - `Days of Week`: `all`
     - `Months`: `all`
-  - `Destination Snapshot Lifetime`: `Same as Source`
+  - `Destination Snapshot Lifetime`: `Custom`
+    - `2` `Weeks`
 
 
 ## NextCloud
