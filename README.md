@@ -6,6 +6,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [Fan configuration](#fan-configuration)
   - [Power Consumption configuration](#power-consumption-configuration)
 - [TrueNAS](#truenas)
+  - [Timezone](#timezone)
   - [Static IP](#static-ip)
   - [Internet](#internet)
   - [SSH (only main server)](#ssh-only-main-server)
@@ -46,6 +47,10 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 
 
 ## TrueNAS
+### Timezone
+`System` -> `General Settings` -> `Localization`:
+- `Timezone`: `<timezone>`
+
 ### Static IP
 `Network`->`Interfaces`->`Edit` (on active connection):
 - `DHCP`: `False`
