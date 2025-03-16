@@ -10,6 +10,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [Static IP](#static-ip)
   - [Internet](#internet)
   - [SSH (only main server)](#ssh-only-main-server)
+  - [Pool](#pool)
   - [Data protection](#data-protection)
 - [NextCloud](#nextcloud)
   - [DataSets structure](#datasets-structure)
@@ -67,6 +68,18 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 `System` -> `Services` -> `SSH`:
 - `Running`: `True`
 - `Start Automatically`: `True`
+
+### Pool
+`Storage` -> `Create pool`:
+- `General Info`
+  - `Name`: `pool`
+  - `Encryption`: `False`
+- `Data`
+  - `Layout`: `Stripe` (for one disk)
+- Skip `Log`, `Spare`, `Cache`, `Metadata`, `Dedup`
+
+`Datasets` -> `pool` -> `Dataset Details` -> `Edit` -> `Advanced Options`:
+- `Compression Level`: `OFF`
 
 ### Data protection
 - Scrub:
