@@ -17,7 +17,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [App instalation](#app-instalation)
   - [NextCloud configuration](#nextcloud-configuration)
   - [Snapshots](#snapshots)
-  - [(Optional) Override trusted domains](#optional-override-trusted-domains)
+  - [Override trusted domains (optional)](#override-trusted-domains-optional)
   - [Nextcloud Office](#nextcloud-office)
 - [Nginx Proxy Manager](#nginx-proxy-manager)
   - [DataSets structure](#datasets-structure-1)
@@ -28,10 +28,10 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
   - [OVH configuration](#ovh-configuration-1)
-- [Jellyfin](#jellyfin)
+- [Jellyfin (optional)](#jellyfin-optional)
   - [DataSets structure](#datasets-structure-3)
   - [App instalation](#app-instalation-2)
-- [qBittorrent](#qbittorrent)
+- [qBittorrent (optional)](#qbittorrent-optional)
   - [App instalation](#app-instalation-3)
 - [References](#references)
 
@@ -172,7 +172,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 - `Schedule`: `Daily (0 0 * * *)` (default: once per day)
 - `Allow Taking Empty Snapshots`: `False`
 
-### (Optional) Override trusted domains
+### Override trusted domains (optional)
 - Using TrueNas Shell change NextCloud `config.php`:
 ```
 nano /mnt/pool/nextcloud/app_data/config/config.php
@@ -264,7 +264,7 @@ dns_ovh_consumer_key = <secret>
       - `Current public IP`: `<public ip>`
 
 
-## Jellyfin
+## Jellyfin (optional)
 ### DataSets structure
   - `jellyfin` (`Generic`)
     - `cache_storage` (`App`)
@@ -279,7 +279,7 @@ dns_ovh_consumer_key = <secret>
   - `Passthrough available (non-NVIDIA) GPUs`: `True`
 
 
-## qBittorrent
+## qBittorrent (optional)
 ### App instalation
 - Password setup:
   - At `qBittorrent.config` add line to `Preferences section`: `WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"`
