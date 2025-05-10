@@ -74,6 +74,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - `Override Admin Email`: `<emails separete by ,(comma)>`
 - `System` -> `General Settings` -> `Email` -> `Settings`:
   - `Send Mail Method`: `<mail method>`
+  - `From Email`: `<email>`
   - `From Name`: `<server name>`
 
 ### SSH (only main server)
