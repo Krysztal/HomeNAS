@@ -9,6 +9,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [Timezone](#timezone)
   - [Static IP](#static-ip)
   - [Internet](#internet)
+  - [Email](#email)
   - [SSH (only main server)](#ssh-only-main-server)
   - [Pool](#pool)
   - [Data protection](#data-protection)
@@ -63,7 +64,18 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 - `DNS Servers`
   - `Nameserver 1`: `<local router address>`
   - `IPv4 Default Gateway`: `<local router address>`
-  
+
+### Email
+- `System` -> `Alert Settings` -> `Add` or edit existing:
+  - `Name`: `E-Mail`
+  - `Enabled`: `True` (default)
+  - `Type`: `E-Mail`
+  - `Level`: `Warning` (default)
+  - `Override Admin Email`: `<emails separete by ,(comma)>`
+- `System` -> `General Settings` -> `Email` -> `Settings`:
+  - `Send Mail Method`: `<mail method>`
+  - `From Name`: `<server name>`
+
 ### SSH (only main server)
 `System` -> `Services` -> `SSH`:
 - `Running`: `True`
