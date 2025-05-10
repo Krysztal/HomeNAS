@@ -170,7 +170,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 - `Snapshot Lifetime`: `2 WEEK` (default)
 - `Naming Schema`: `auto-%Y-%m-%d_%H-%M` (default)
 - `Schedule`: `Daily (0 0 * * *)` (default: once per day)
-- `Allow Taking Empty Snapshots`: `True`
+- `Allow Taking Empty Snapshots`: `True` (default)
 
 ### Override trusted domains (optional)
 - Using TrueNas Shell change NextCloud `config.php`:
