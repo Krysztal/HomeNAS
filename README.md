@@ -161,6 +161,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 
 ### App instalation
 - `Postgres Image (CAUTION)`: `Postgres 17`
+- `APT Packages`: `ffmpeg`
 - `Host`: `<public ip/domain without https://>`
 - `Cron`: `True`
 - `GPU Configuration`
