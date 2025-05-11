@@ -23,7 +23,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [App instalation](#app-instalation)
   - [NextCloud configuration](#nextcloud-configuration)
   - [Snapshots](#snapshots)
-  - [Override trusted domains (optional)](#override-trusted-domains-optional)
+  - [Override trusted domains](#override-trusted-domains)
   - [Nextcloud Office](#nextcloud-office)
 - [DDNS Updater](#ddns-updater)
   - [DataSets structure](#datasets-structure-2)
@@ -238,12 +238,12 @@ dns_ovh_consumer_key = <secret>
 - `Schedule`: `Daily (0 0 * * *)` (default: once per day)
 - `Allow Taking Empty Snapshots`: `True` (default)
 
-### Override trusted domains (optional)
+### Override trusted domains
 - Using TrueNas Shell change NextCloud `config.php`:
 ```
 nano /mnt/pool/nextcloud/app_data/config/config.php
 ```
-- Add `<custom domain>` to `trusted_domains`
+- Add `<custom domain>` to `trusted_domains` (optional)
 - Add `overwriteprotocol` with `https`
 
 ### Nextcloud Office
