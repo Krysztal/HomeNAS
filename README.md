@@ -243,8 +243,9 @@ dns_ovh_consumer_key = <secret>
 ```
 nano /mnt/pool/nextcloud/app_data/config/config.php
 ```
-- Add `<custom domain>` to `trusted_domains` (optional)
+- Change `overwrite.cli.url` to `https://localhost`
 - Add `overwriteprotocol` with `https`
+- Add `<custom domain>` to `trusted_domains` (optional)
 
 ### Nextcloud Office
 - Install apps:
