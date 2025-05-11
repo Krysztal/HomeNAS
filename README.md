@@ -13,18 +13,18 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [SSH (only main server)](#ssh-only-main-server)
   - [Pool](#pool)
   - [Data protection](#data-protection)
-- [NextCloud](#nextcloud)
+- [Nginx Proxy Manager](#nginx-proxy-manager)
   - [DataSets structure](#datasets-structure)
+  - [OVH configuration](#ovh-configuration)
+  - [OVH Token Creation](#ovh-token-creation)
+  - [Nginx configuration](#nginx-configuration)
+- [NextCloud](#nextcloud)
+  - [DataSets structure](#datasets-structure-1)
   - [App instalation](#app-instalation)
   - [NextCloud configuration](#nextcloud-configuration)
   - [Snapshots](#snapshots)
   - [Override trusted domains (optional)](#override-trusted-domains-optional)
   - [Nextcloud Office](#nextcloud-office)
-- [Nginx Proxy Manager](#nginx-proxy-manager)
-  - [DataSets structure](#datasets-structure-1)
-  - [OVH configuration](#ovh-configuration)
-  - [OVH Token Creation](#ovh-token-creation)
-  - [Nginx configuration](#nginx-configuration)
 - [DDNS Updater](#ddns-updater)
   - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
@@ -152,56 +152,6 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
     - `2` `Weeks`
 
 
-## NextCloud
-### DataSets structure
-- `nextcloud` (`Generic` + `Compression Level`: `OFF`)
-  - `app_data` (`App`)
-  - `user_data` (`Generic`)
-  - `postgres_data` (`Generic` + `999:999 (netdata:docker)` as owner)
-
-### App instalation
-- `Postgres Image (CAUTION)`: `Postgres 17`
-- `APT Packages`: `ffmpeg`
-- `Host`: `<public ip/domain without https://>`
-- `Cron`: `True`
-- `GPU Configuration`
-  - `Passthrough available (non-NVIDIA) GPUs`: `True`
-
-### NextCloud configuration
-- Disable apps:
-  - `Versions`
-  - `Weather status`
-- Install apps:
-  - `End-to-End Encryption`
-- `Administration settings` -> `Basic settings` -> `Background jobs`:
-  - Chose: `Cron (Recommended)`
-- (optional) Remove sceletron folder (cli only option)
-- (optional) Disable Readme.md previews in folders
-
-### Snapshots
-- `DataSet`: `pool/nextcloud`
-- `Recursive`: `True`
-- `Snapshot Lifetime`: `2 WEEK` (default)
-- `Naming Schema`: `auto-%Y-%m-%d_%H-%M` (default)
-- `Schedule`: `Daily (0 0 * * *)` (default: once per day)
-- `Allow Taking Empty Snapshots`: `True` (default)
-
-### Override trusted domains (optional)
-- Using TrueNas Shell change NextCloud `config.php`:
-```
-nano /mnt/pool/nextcloud/app_data/config/config.php
-```
-- Add `<custom domain>` to `trusted_domains`
-- Add `overwriteprotocol` with `https`
-
-### Nextcloud Office
-- Install apps:
-  - `Collabora Online - Built-in CODE Server`
-  - `Nextcloud Office`
-- `Administration settings` -> `Nextcloud Office`:
-  - Chose: `Use the Built-in CODE - Collabora Online Development Edition`
-
-
 ## Nginx Proxy Manager
 ### DataSets structure
 - `nginx_proxy_manager` (`Generic` + `Compression Level`: `OFF`)
@@ -252,6 +202,56 @@ dns_ovh_consumer_key = <secret>
     - `SSL Certificate`: `<created certificate>`
     - `Force SSL`: `True`
     - `HSTS Enabled`: `True`
+
+
+## NextCloud
+### DataSets structure
+- `nextcloud` (`Generic` + `Compression Level`: `OFF`)
+  - `app_data` (`App`)
+  - `user_data` (`Generic`)
+  - `postgres_data` (`Generic` + `999:999 (netdata:docker)` as owner)
+
+### App instalation
+- `Postgres Image (CAUTION)`: `Postgres 17`
+- `APT Packages`: `ffmpeg`
+- `Host`: `<public ip/domain without https://>`
+- `Cron`: `True`
+- `GPU Configuration`
+  - `Passthrough available (non-NVIDIA) GPUs`: `True`
+
+### NextCloud configuration
+- Disable apps:
+  - `Versions`
+  - `Weather status`
+- Install apps:
+  - `End-to-End Encryption`
+- `Administration settings` -> `Basic settings` -> `Background jobs`:
+  - Chose: `Cron (Recommended)`
+- (optional) Remove sceletron folder (cli only option)
+- (optional) Disable Readme.md previews in folders
+
+### Snapshots
+- `DataSet`: `pool/nextcloud`
+- `Recursive`: `True`
+- `Snapshot Lifetime`: `2 WEEK` (default)
+- `Naming Schema`: `auto-%Y-%m-%d_%H-%M` (default)
+- `Schedule`: `Daily (0 0 * * *)` (default: once per day)
+- `Allow Taking Empty Snapshots`: `True` (default)
+
+### Override trusted domains (optional)
+- Using TrueNas Shell change NextCloud `config.php`:
+```
+nano /mnt/pool/nextcloud/app_data/config/config.php
+```
+- Add `<custom domain>` to `trusted_domains`
+- Add `overwriteprotocol` with `https`
+
+### Nextcloud Office
+- Install apps:
+  - `Collabora Online - Built-in CODE Server`
+  - `Nextcloud Office`
+- `Administration settings` -> `Nextcloud Office`:
+  - Chose: `Use the Built-in CODE - Collabora Online Development Edition`
 
 
 ## DDNS Updater
