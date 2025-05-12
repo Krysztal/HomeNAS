@@ -21,10 +21,10 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 - [NextCloud](#nextcloud)
   - [DataSets structure](#datasets-structure-1)
   - [App instalation](#app-instalation)
+  - [Change config file](#change-config-file)
   - [NextCloud configuration](#nextcloud-configuration)
-  - [Snapshots](#snapshots)
-  - [Override trusted domains](#override-trusted-domains)
   - [Nextcloud Office](#nextcloud-office)
+  - [Snapshots](#snapshots)
 - [DDNS Updater](#ddns-updater)
   - [DataSets structure](#datasets-structure-2)
   - [App instalation](#app-instalation-1)
@@ -219,6 +219,15 @@ dns_ovh_consumer_key = <secret>
 - `GPU Configuration`
   - `Passthrough available (non-NVIDIA) GPUs`: `True`
 
+### Change config file
+- Using TrueNas Shell change NextCloud `config.php`:
+```
+nano /mnt/pool/nextcloud/app_data/config/config.php
+```
+- Change `overwrite.cli.url` to `https://localhost`
+- Add `overwriteprotocol` with `https`
+- Add `<custom domain>` to `trusted_domains` (optional)
+
 ### NextCloud configuration
 - Disable apps:
   - `Versions`
@@ -230,6 +239,13 @@ dns_ovh_consumer_key = <secret>
 - (optional) Remove sceletron folder (cli only option)
 - (optional) Disable Readme.md previews in folders
 
+### Nextcloud Office
+- Install apps:
+  - `Collabora Online - Built-in CODE Server`
+  - `Nextcloud Office`
+- `Administration settings` -> `Nextcloud Office`:
+  - Chose: `Use the Built-in CODE - Collabora Online Development Edition`
+
 ### Snapshots
 - `DataSet`: `pool/nextcloud`
 - `Recursive`: `True`
@@ -237,22 +253,6 @@ dns_ovh_consumer_key = <secret>
 - `Naming Schema`: `auto-%Y-%m-%d_%H-%M` (default)
 - `Schedule`: `Daily (0 0 * * *)` (default: once per day)
 - `Allow Taking Empty Snapshots`: `True` (default)
-
-### Override trusted domains
-- Using TrueNas Shell change NextCloud `config.php`:
-```
-nano /mnt/pool/nextcloud/app_data/config/config.php
-```
-- Change `overwrite.cli.url` to `https://localhost`
-- Add `overwriteprotocol` with `https`
-- Add `<custom domain>` to `trusted_domains` (optional)
-
-### Nextcloud Office
-- Install apps:
-  - `Collabora Online - Built-in CODE Server`
-  - `Nextcloud Office`
-- `Administration settings` -> `Nextcloud Office`:
-  - Chose: `Use the Built-in CODE - Collabora Online Development Edition`
 
 
 ## DDNS Updater
