@@ -228,7 +228,7 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
 - Add `'overwriteprotocol' => 'https'`
 - Add `'overwritehost' => '<domain from OVH>'`,
 - Add `'maintenance_window_start' => 0` (in UTC 1:00 or 2:00 for PL)
-- Add `<domain from OVH>` to `trusted_domains` (optional)
+- Add `<domain from OVH>` to `trusted_domains` (if not exist)
 
 ### NextCloud configuration
 - Disable apps:
