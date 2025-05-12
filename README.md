@@ -310,3 +310,4 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
 Postgres DataSet: https://github.com/truenas/apps/issues/790  
 NextCloud Office: https://youtu.be/sHU6XZ_b2hw?t=991  
 Data protection: https://www.youtube.com/watch?v=dP0wagQVctc
+Configure config.php: https://github.com/nextcloud-snap/nextcloud-snap/wiki/Configure-config.php
