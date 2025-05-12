@@ -225,8 +225,10 @@ dns_ovh_consumer_key = <secret>
 nano /mnt/pool/nextcloud/app_data/config/config.php
 ```
 - Change `overwrite.cli.url` to `https://localhost`
-- Add `overwriteprotocol` with `https`
-- Add `<custom domain>` to `trusted_domains` (optional)
+- Add `'overwriteprotocol' => 'https'`
+- Add `'overwritehost' => '<domain from OVH>'`,
+- Add `'maintenance_window_start' => 0` (in UTC 1:00 or 2:00 for PL)
+- Add `<domain from OVH>` to `trusted_domains` (optional)
 
 ### NextCloud configuration
 - Disable apps:
