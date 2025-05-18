@@ -297,9 +297,12 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
 
 
 ## qBittorrent (optional)
-### App instalation
+### AppConfiguration
 - Password setup:
-  - At `qBittorrent.config` add line to `Preferences section`: `WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"`
+  - stop app
+  - open configuration in TrueNas Shell  ```nano /mnt/pool/qbittorrent/config_storage/qBittorrent/qBittorrent.conf```
+  - add line to `Preferences section`: `WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"`
+  - start app
   - `default username`: `admin`
   - `password`: `adminadmin`
 - Auth setup:
