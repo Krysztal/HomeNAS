@@ -34,6 +34,8 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [App instalation](#app-instalation-2)
 - [qBittorrent (optional)](#qbittorrent-optional)
   - [App instalation](#app-instalation-3)
+- [NextCloud client (optional)](#nextcloud-client)
+  - [Android](#android)
 - [References](#references)
 
 
@@ -309,6 +311,15 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
   - `Tool` -> `Options` -> `WebUI` -> `Authentication`:
     - Chnage login and password
     - `Bypass authentication for clients in whitelisted IP subnets`: `<local ip address>/24`
+
+
+## NextCloud client (optional)
+### Android
+- `Settings`:
+  - `General` -> `Data storage location`: `<local storage>`
+  - `Details` -> `Show app switcher`: `False`
+  - `Sync` -> `Internal two way sync` -> `Enable two way sync`: `True`
+  - For each folder you want to have offline press `three dots` -> `Details` -> `Sync`: `True`
 
 
 ## References
