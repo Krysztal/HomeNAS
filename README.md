@@ -319,7 +319,7 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
   - `General` -> `Data storage location`: `<local storage>`
   - `Details` -> `Show app switcher`: `False`
   - `Sync` -> `Internal two way sync` -> `Enable two way sync`: `True`
-  - For each folder you want to have offline press `three dots` -> `Details` -> `Sync`: `True`
+- For each folder you want to have offline press `three dots` -> `Details` -> `Sync`: `True`
 
 
 ## References
