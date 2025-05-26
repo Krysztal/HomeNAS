@@ -33,7 +33,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [DataSets structure](#datasets-structure-3)
   - [App instalation](#app-instalation-2)
 - [qBittorrent (optional)](#qbittorrent-optional)
-  - [App instalation](#app-instalation-3)
+  - [Configuration](#configuration)
 - [NextCloud client (optional)](#nextcloud-client)
   - [Android](#android)
 - [References](#references)
@@ -299,12 +299,12 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
 
 
 ## qBittorrent (optional)
-### AppConfiguration
+### Configuration
 - Password setup:
-  - stop app
-  - open configuration in TrueNas Shell  ```nano /mnt/pool/qbittorrent/config_storage/qBittorrent/qBittorrent.conf```
-  - add line to `Preferences section`: `WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"`
-  - start app
+  - Stop app
+  - Open configuration in TrueNas Shell  ```nano /mnt/pool/qbittorrent/config_storage/qBittorrent/qBittorrent.conf```
+  - Add line to `Preferences section`: `WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"`
+  - Start app
   - `default username`: `admin`
   - `password`: `adminadmin`
 - Auth setup:
