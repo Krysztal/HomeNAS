@@ -34,7 +34,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - [App instalation](#app-instalation-2)
 - [qBittorrent (optional)](#qbittorrent-optional)
   - [Configuration](#configuration)
-- [NextCloud client (optional)](#nextcloud-client)
+- [NextCloud client (optional)](#nextcloud-client-optional)
   - [Android](#android)
 - [References](#references)
 
