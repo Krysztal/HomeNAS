@@ -122,11 +122,11 @@ dns_ovh_consumer_key = <secret>
       - `Profile`: `HTTPS RSA Certificate`
     - `Certificate Options`: (default)
     - `Certificate Subject`:
-      - `Country`: `<Country>`
+      - `Country`: `<your country>`
       - `State`: `--`
       - `Locality`: `--`
       - `Organization`: `--`
-      - `Email`: `<Email>`
+      - `Email`: `<your email>`
       - `Subject Alternative Name`: `<sub domain>` or `<domain from OVH>`
     - `Extra Constraints`: (default)
     - `Save`
