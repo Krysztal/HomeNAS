@@ -79,8 +79,8 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - `From Email`: `<existing email>`
   - `From Name`: `<server name>`
 
-### Credentials
-- `Certificates`:
+### Certificates
+- `Credentials` -> `Certificates`:
   - `ACME DNS-Authenticators` -> `Add`:
     - `Name`: `OVH`
     - `Authenticator`: `OVH`
