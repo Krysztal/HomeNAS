@@ -84,10 +84,10 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - `ACME DNS-Authenticators` -> `Add`:
     - `Name`: `OVH`
     - `Authenticator`: `OVH`
-    - `Application Key`: `<From OVH Token>`
-    - `Application Secret`: `<From OVH Token>`
-    - `Consumer Key`: `<From OVH Token>`
-    - `Endpoint`: `<From OVH Token>`
+    - `Application Key`: `<from OVH token>`
+    - `Application Secret`: `<from OVH token>`
+    - `Consumer Key`: `<from OVH token>`
+    - `Endpoint`: `<from OVH token>`
   - `Certificate Signing Requests` -> `Add`:
     - `Identifier and Type`:
       - `Name`: `CSR`
@@ -98,6 +98,7 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
       - `Country`: `<Country>`
       - `State`: `--`
       - `Locality`: `--`
+      - `Organization`: `--`
       - `Email`: `<Email>`
       - `Subject Alternative Name`: `<sub domain>` or `<domain from OVH>`
     - `Extra Constraints`: `<...>` (default)
