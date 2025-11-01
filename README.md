@@ -2,41 +2,45 @@
 Instruction how to setup TrueNas + NextCloud main server with second backup TrueNas server.
 
 ## Table of contents
-- [BIOS](#bios)
-  - [Fan configuration](#fan-configuration)
-  - [Power Consumption configuration](#power-consumption-configuration)
-- [TrueNAS](#truenas)
-  - [Timezone](#timezone)
-  - [Static IP](#static-ip)
-  - [Internet](#internet)
-  - [Email](#email)
-  - [SSH (only main server)](#ssh-only-main-server)
-  - [Pool](#pool)
-  - [Data protection](#data-protection)
-- [Nginx Proxy Manager](#nginx-proxy-manager)
-  - [DataSets structure](#datasets-structure)
-  - [OVH configuration](#ovh-configuration)
-  - [OVH Token Creation](#ovh-token-creation)
-  - [Nginx configuration](#nginx-configuration)
-- [NextCloud](#nextcloud)
-  - [DataSets structure](#datasets-structure-1)
-  - [App instalation](#app-instalation)
-  - [Change config file](#change-config-file)
-  - [NextCloud configuration](#nextcloud-configuration)
-  - [Nextcloud Office](#nextcloud-office)
-  - [Snapshots](#snapshots)
-- [DDNS Updater](#ddns-updater)
-  - [DataSets structure](#datasets-structure-2)
-  - [App instalation](#app-instalation-1)
-  - [OVH configuration](#ovh-configuration-1)
-- [Jellyfin (optional)](#jellyfin-optional)
-  - [DataSets structure](#datasets-structure-3)
-  - [App instalation](#app-instalation-2)
-- [qBittorrent (optional)](#qbittorrent-optional)
-  - [Configuration](#configuration)
-- [NextCloud client (optional)](#nextcloud-client-optional)
-  - [Android](#android)
-- [References](#references)
+- [Home NAS](#home-nas)
+  - [Table of contents](#table-of-contents)
+  - [BIOS](#bios)
+    - [Fan configuration](#fan-configuration)
+    - [Power Consumption configuration](#power-consumption-configuration)
+  - [OVH](#ovh)
+    - [Configuration](#configuration)
+    - [Token creation](#token-creation)
+  - [TrueNAS](#truenas)
+    - [Timezone](#timezone)
+    - [Static IP](#static-ip)
+    - [Internet](#internet)
+    - [Email](#email)
+    - [Certificates](#certificates)
+    - [SSH (only main server)](#ssh-only-main-server)
+    - [Pool](#pool)
+    - [Data protection](#data-protection)
+  - [NextCloud](#nextcloud)
+    - [DataSets structure](#datasets-structure)
+    - [App instalation](#app-instalation)
+    - [Change config file](#change-config-file)
+    - [NextCloud configuration](#nextcloud-configuration)
+    - [Nextcloud Office](#nextcloud-office)
+    - [Snapshots](#snapshots)
+  - [DDNS Updater](#ddns-updater)
+    - [DataSets structure](#datasets-structure-1)
+    - [App instalation](#app-instalation-1)
+    - [OVH configuration](#ovh-configuration)
+  - [NextCloud client (optional)](#nextcloud-client-optional)
+    - [Android](#android)
+  - [Jellyfin (optional)](#jellyfin-optional)
+    - [DataSets structure](#datasets-structure-2)
+    - [App instalation](#app-instalation-2)
+  - [qBittorrent (optional)](#qbittorrent-optional)
+    - [Configuration](#configuration-1)
+  - [Nginx Proxy Manager (deprecated)](#nginx-proxy-manager-deprecated)
+    - [DataSets structure](#datasets-structure-3)
+    - [Nginx configuration](#nginx-configuration)
+  - [References](#references)
 
 
 ## BIOS
@@ -48,6 +52,29 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 ### Power Consumption configuration
 `Advanced` -> `Power & Performence` -> `CPU - Power Managment Control`:
 - `Boost performentce mode`: `Max Non-Turbo Performance`
+
+
+## OVH
+### Configuration
+Buy domain at [OVH](https://www.ovh.com/)
+
+### Token creation
+Using Url: [OVH Create Token](https://www.ovh.com/auth/api/createToken):
+- `Application name`: `CRT`
+- `Application description`: `CRT`
+- `Validity`: `Unlimited`
+- `Rights`:
+  - `GET` `/domain/zone/*`
+  - `POST` `/domain/zone/*`
+  - `DELETE` `/domain/zone/*`
+
+Create result file:
+```
+dns_ovh_endpoint = ovh-eu
+dns_ovh_application_key = <secret>
+dns_ovh_application_secret = <secret>
+dns_ovh_consumer_key = <secret>
+```
 
 
 ## TrueNAS
@@ -187,59 +214,6 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
     - `2` `Weeks`
 
 
-## Nginx Proxy Manager
-### DataSets structure
-- `nginx_proxy_manager` (`Generic` + `Compression Level`: `OFF`)
-  - `certs_storage` (`App`)
-  - `data_storage` (`App`)
-
-### OVH configuration
-- Buy domain at [OVH](https://www.ovh.com/)
-
-### OVH Token Creation
-Using Url: [OVH Create Token](https://www.ovh.com/auth/api/createToken):
-- `Application name`: `CRT`
-- `Application description`: `CRT`
-- `Validity`: `Unlimited`
-- `Rights`:
-  - `GET` `/domain/zone/*`
-  - `POST` `/domain/zone/*`
-  - `DELETE` `/domain/zone/*`
-
-Create result file:
-```
-dns_ovh_endpoint = ovh-eu
-dns_ovh_application_key = <secret>
-dns_ovh_application_secret = <secret>
-dns_ovh_consumer_key = <secret>
-```
-
-### Nginx configuration
-- Change login from:
-  - `Email`: `admin@example.com`
-  - `Password`: `changeme`
-- Create `SSL Certificates` for each domain:
-  - `Domain Names`: `<domain from OVH>`
-  - `Email Address for Let's Encrypt`: `<your email>`
-  - `Use a DNS Challenge`: `True`
-  - `DNS Provider`: `OVH`
-  - `Credentials File Content`: `<OVH Token Creation result file>`
-- Create `Proxy Hosts` for each domain:
-  - `Details`:
-    - `Domain Names`: `<domain from OVH>`
-    - `Scheme`: `http`
-    - `Forward Hostname / IP`: `<application IP>`
-    - `Forward Port`: `<application port>`
-    - `Cache Assets`: `True`
-    - `Block Common Exploits`: `True`
-    - `Websockets Support`: `True`
-    - `Access List`: `Publicaly Accessible` (default)
-  - `SSL`:
-    - `SSL Certificate`: `<created certificate>`
-    - `Force SSL`: `True`
-    - `HSTS Enabled`: `True`
-
-
 ## NextCloud
 ### DataSets structure
 - `nextcloud` (`Generic` + `Compression Level`: `OFF`)
@@ -317,6 +291,15 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
       - `Current public IP`: `<public ip>`
 
 
+## NextCloud client (optional)
+### Android
+- `Settings`:
+  - `General` -> `Data storage location`: `<local storage>`
+  - `Details` -> `Show app switcher`: `False`
+  - `Sync` -> `Internal two way sync` -> `Enable two way sync`: `True`
+- For each folder you want to have offline press `three dots` -> `Details` -> `Sync`: `True`
+
+
 ## Jellyfin (optional)
 ### DataSets structure
   - `jellyfin` (`Generic`)
@@ -353,13 +336,36 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
     - `Bypass authentication for clients in whitelisted IP subnets`: `<local ip address>/24`
 
 
-## NextCloud client (optional)
-### Android
-- `Settings`:
-  - `General` -> `Data storage location`: `<local storage>`
-  - `Details` -> `Show app switcher`: `False`
-  - `Sync` -> `Internal two way sync` -> `Enable two way sync`: `True`
-- For each folder you want to have offline press `three dots` -> `Details` -> `Sync`: `True`
+## Nginx Proxy Manager (deprecated)
+### DataSets structure
+- `nginx_proxy_manager` (`Generic` + `Compression Level`: `OFF`)
+  - `certs_storage` (`App`)
+  - `data_storage` (`App`)
+
+### Nginx configuration
+- Change login from:
+  - `Email`: `admin@example.com`
+  - `Password`: `changeme`
+- Create `SSL Certificates` for each domain:
+  - `Domain Names`: `<domain from OVH>`
+  - `Email Address for Let's Encrypt`: `<your email>`
+  - `Use a DNS Challenge`: `True`
+  - `DNS Provider`: `OVH`
+  - `Credentials File Content`: `<OVH Token Creation result file>`
+- Create `Proxy Hosts` for each domain:
+  - `Details`:
+    - `Domain Names`: `<domain from OVH>`
+    - `Scheme`: `http`
+    - `Forward Hostname / IP`: `<application IP>`
+    - `Forward Port`: `<application port>`
+    - `Cache Assets`: `True`
+    - `Block Common Exploits`: `True`
+    - `Websockets Support`: `True`
+    - `Access List`: `Publicaly Accessible` (default)
+  - `SSL`:
+    - `SSL Certificate`: `<created certificate>`
+    - `Force SSL`: `True`
+    - `HSTS Enabled`: `True`
 
 
 ## References
