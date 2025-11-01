@@ -120,7 +120,7 @@ dns_ovh_consumer_key = <secret>
       - `Name`: `CSR`
       - `Type`: `Certificate Signing Request`
       - `Profile`: `HTTPS RSA Certificate`
-    - `Certificate Options`: `<...>` (default)
+    - `Certificate Options`: (default)
     - `Certificate Subject`:
       - `Country`: `<Country>`
       - `State`: `--`
@@ -128,7 +128,7 @@ dns_ovh_consumer_key = <secret>
       - `Organization`: `--`
       - `Email`: `<Email>`
       - `Subject Alternative Name`: `<sub domain>` or `<domain from OVH>`
-    - `Extra Constraints`: `<...>` (default)
+    - `Extra Constraints`: (default)
     - `Save`
     - Click `Create ACME Certificate`:
       - `Identifier`: `CRT`
