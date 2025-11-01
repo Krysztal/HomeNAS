@@ -79,6 +79,36 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
   - `From Email`: `<existing email>`
   - `From Name`: `<server name>`
 
+### Credentials
+- `Certificates`:
+  - `ACME DNS-Authenticators` -> `Add`:
+    - `Name`: `OVH`
+    - `Authenticator`: `OVH`
+    - `Application Key`: `<From OVH Token>`
+    - `Application Secret`: `<From OVH Token>`
+    - `Consumer Key`: `<From OVH Token>`
+    - `Endpoint`: `<From OVH Token>`
+  - `Certificate Signing Requests` -> `Add`:
+    - `Identifier and Type`:
+      - `Name`: `CSR`
+      - `Type`: `Certificate Signing Request`
+      - `Profile`: `HTTPS RSA Certificate`
+    - `Certificate Options`: `<...>` (default)
+    - `Certificate Subject`:
+      - `Country`: `<Country>`
+      - `State`: `--`
+      - `Locality`: `--`
+      - `Email`: `<Email>`
+      - `Subject Alternative Name`: `<sub domain>` or `<domain from OVH>`
+    - `Extra Constraints`: `<...>` (default)
+    - `Save`
+    - Click `Create ACME Certificate`:
+      - `Identifier`: `CRT`
+      - `Terms of Service`: `True`
+      - `Renew Certificate Days`: `30`
+      - `ACME Server Directory URI`: `Let's Encrypt Production Directory`
+      - `Domains`: `OVH`
+
 ### SSH (only main server)
 `System` -> `Services` -> `SSH`:
 - `Running`: `True`
