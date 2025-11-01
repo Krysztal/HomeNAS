@@ -108,6 +108,8 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
       - `Renew Certificate Days`: `30`
       - `ACME Server Directory URI`: `Let's Encrypt Production Directory`
       - `Domains`: `OVH`
+- `System` -> `General Settings` -> `GUI` -> `Settings`:
+  - `GUI SSL Certificate`: `CRT`
 
 ### SSH (only main server)
 `System` -> `Services` -> `SSH`:
