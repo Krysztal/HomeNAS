@@ -198,8 +198,9 @@ Instruction how to setup TrueNas + NextCloud main server with second backup True
 
 ### OVH Token Creation
 Using Url: [OVH Create Token](https://www.ovh.com/auth/api/createToken):
-- `Application name`: `nginx-proxy-manager`
-- `Application description`: `Nginx Proxy Manager`
+- `Application name`: `CRT`
+- `Application description`: `CRT`
+- `Validity`: `Unlimited`
 - `Rights`:
   - `GET` `/domain/zone/*`
   - `POST` `/domain/zone/*`
