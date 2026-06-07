@@ -310,9 +310,17 @@ nano /mnt/pool/nextcloud/app_data/config/config.php
 
 ### App instalation
 - `Published Server URL`: `<public ip/domain>`
+- `Jellyfin Transcode Storage`: `tmpfs (Temporary directory created on the RAM)`
 - `Additional Storage. Mount Path`: `/library`
 - `GPU Configuration`
   - `Passthrough available (non-NVIDIA) GPUs`: `True`
+  
+### App Configuraion
+- `Settings`:
+  - `Playback` -> `Transcoding`:
+    - `Throttle Transcodes`: `True`
+    - `Throttle After`: `300`
+    - `Time to keep segments`: `90`
 
 
 ## qBittorrent (optional)
